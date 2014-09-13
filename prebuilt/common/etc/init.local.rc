@@ -14,6 +14,16 @@ on post-fs-data
     # Run sysinit
     start sysinit
 
+    # In the Linux kernel's drivers/char/random.c
+    # flash storage is cited as a bad
+    # source of flash entropy, it just
+    # slows down generation of random. Disable it.
+    write /sys/block/mmcblk0/queue/add_random 0
+
+    # See http://www.netmite.com/android/mydroid/2.0/dalvik/docs/embedded-vm-control.html
+    # Disable extended JNI checks, should speed things up
+    setprop dalvik.vm.checkjni false
+
 on boot
     # interactive governor
     chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate

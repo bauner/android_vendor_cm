@@ -66,9 +66,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
-# Disable multithreaded dexopt by default
+# enable multithreaded dexopt by default
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.dalvik.multithread=false
+    persist.sys.dalvik.multithread=true
 
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
@@ -107,6 +107,14 @@ PRODUCT_COPY_FILES += \
 # CM-specific init file
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+
+# sysctl.conf file
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
+
+# sysctl init file
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
