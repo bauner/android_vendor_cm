@@ -66,9 +66,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
-# disable multithreaded dexopt by default
+# enable multithreaded dexopt by default
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.dalvik.multithread=false
+    persist.sys.dalvik.multithread=true
 
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
