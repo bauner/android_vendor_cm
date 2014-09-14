@@ -70,6 +70,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dalvik.multithread=true
 
+# default disable call recording support
+PRODUCT_PROPERTY_OVERRIDES += \
+   persist.call_recording.enabled=false
+
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
