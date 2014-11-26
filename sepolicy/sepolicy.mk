@@ -9,11 +9,13 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
     file.te \
     file_contexts \
-    fs_use \
     genfs_contexts \
     seapp_contexts \
+    service_contexts \
+    auditd.te \
     installd.te \
     netd.te \
+    sysinit.te \
     system.te \
     ueventd.te \
     vold.te \
