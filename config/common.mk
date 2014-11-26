@@ -70,10 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dalvik.multithread=true
 
-# default disable call recording support
-PRODUCT_PROPERTY_OVERRIDES += \
-   persist.call_recording.enabled=false
-
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
@@ -111,14 +107,6 @@ PRODUCT_COPY_FILES += \
 # CM-specific init file
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
-
-# sysctl.conf file
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
-
-# sysctl init file
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
@@ -218,9 +206,6 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_ffmpegvdec \
     libFFmpegExtractor \
     libnamparser
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.root_access=1
 
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
