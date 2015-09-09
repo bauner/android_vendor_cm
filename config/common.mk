@@ -112,14 +112,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
-# sysctl.conf file
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
-
-# sysctl init file
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/01sysctl:system/etc/init.d/01sysctl
-
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
     vendor/cm/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
