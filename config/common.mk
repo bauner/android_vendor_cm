@@ -61,7 +61,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=0
+    ro.build.selinux=1
 
 # enable multithreaded dexopt by default
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -182,9 +182,6 @@ PRODUCT_PACKAGES += \
     htop \
     powertop \
     lsof \
-    mount.exfat \
-    fsck.exfat \
-    mkfs.exfat \
     mkfs.f2fs \
     fsck.f2fs \
     fibmap.f2fs \
@@ -195,6 +192,15 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace
+
+WITH_EXFAT ?= true
+ifeq ($(WITH_EXFAT),true)
+TARGET_USES_EXFAT := true
+PRODUCT_PACKAGES += \
+    mount.exfat \
+    fsck.exfat \
+    mkfs.exfat
+endif
 
 # Openssh
 PRODUCT_PACKAGES += \
@@ -235,7 +241,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
 PRODUCT_VERSION_MAJOR = 12
 PRODUCT_VERSION_MINOR = 1
-PRODUCT_VERSION_MAINTENANCE = 0-RC0
+PRODUCT_VERSION_MAINTENANCE = MAINLINE
 
 # Set CM_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
@@ -327,7 +333,7 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
     else
       TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
     endif
-    CM_DISPLAY_VERSION=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)
+    CM_DISPLAY_VERSION=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(TARGET_VENDOR_RELEASE_BUILD_ID)
   endif
 endif
 endif
