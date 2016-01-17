@@ -15,11 +15,13 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     PhotoTable \
     SoundRecorder \
-    PhotoPhase
+    PhotoPhase \
+    Screencast
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     7z \
+    lib7z \
     bash \
     bzip2 \
     curl \
