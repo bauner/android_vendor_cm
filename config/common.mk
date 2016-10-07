@@ -66,7 +66,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Default notification/alarm sounds
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Helium.ogg
+    ro.config.alarm_alert=Hassium.ogg
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
@@ -349,6 +349,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.releasetype=$(CM_BUILDTYPE) \
   ro.modversion=$(CM_VERSION) \
   ro.cmlegal.url=https://cyngn.com/legal/privacy-policy
+
+ifeq ($(OTA_PACKAGE_SIGNING_KEY),)
+    PRODUCT_EXTRA_RECOVERY_KEYS += \
+        vendor/cm/build/target/product/security/cm \
+        vendor/cm/build/target/product/security/cm-devkey
+endif
 
 -include vendor/cm-priv/keys/keys.mk
 
