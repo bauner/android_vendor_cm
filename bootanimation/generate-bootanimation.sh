@@ -19,10 +19,9 @@ fi
 
 RESOLUTION=""$IMAGESIZE"x"$IMAGESIZE""
 
-for part_cnt in 0 1 2
-do
-    mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part$part_cnt
-done
+mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part0
+mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part1
+mkdir -p $ANDROID_PRODUCT_OUT/obj/BOOTANIMATION/bootanimation/part2
 tar xfp "vendor/cm/bootanimation/bootanimation.tar" --to-command="convert - -resize '$RESOLUTION' \"png8:$OUT/bootanimation/\$TAR_FILENAME\""
 
 # Create desc.txt
