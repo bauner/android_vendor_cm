@@ -6,21 +6,18 @@ HALF_RES="$3"
 OUT="$ANDROID_PRODUCT_OUT/obj/BOOTANIMATION"
 
 if [ "$HEIGHT" -lt "$WIDTH" ]; then
-    IMAGEWIDTH="$HEIGHT"
+    SIZE="$HEIGHT"
 else
-    IMAGEWIDTH="$WIDTH"
+    SIZE="$WIDTH"
 fi
-
-IMAGESCALEWIDTH="$IMAGEWIDTH"
-IMAGESCALEHEIGHT=$(expr $IMAGESCALEWIDTH / 3)
 
 if [ "$HALF_RES" = "true" ]; then
-    IMAGEWIDTH=$(expr $IMAGEWIDTH / 2)
+    IMAGESIZE=$(expr $SIZE / 2)
+else
+    IMAGESIZE="$SIZE"
 fi
 
-IMAGEHEIGHT=$(expr $IMAGEWIDTH / 3)
-
-RESOLUTION=""$IMAGEWIDTH"x"$IMAGEHEIGHT""
+RESOLUTION=""$IMAGESIZE"x"$IMAGESIZE""
 
 for part_cnt in 0 1 2
 do
@@ -29,7 +26,7 @@ done
 tar xfp "vendor/cm/bootanimation/bootanimation.tar" --to-command="convert - -resize '$RESOLUTION' \"png8:$OUT/bootanimation/\$TAR_FILENAME\""
 
 # Create desc.txt
-echo "$IMAGESCALEWIDTH $IMAGESCALEHEIGHT" 30 > "$OUT/bootanimation/desc.txt"
+echo "$SIZE" "$SIZE" 30 > "$OUT/bootanimation/desc.txt"
 cat "vendor/cm/bootanimation/desc.txt" >> "$OUT/bootanimation/desc.txt"
 
 # Create bootanimation.zip
