@@ -43,13 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    keyguard.no_require_sim=true \
-    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.com.android.dateformat=MM-dd-yyyy \
-    ro.com.android.dataroaming=false
+    keyguard.no_require_sim=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
@@ -130,6 +124,13 @@ ifneq ($(TARGET_DISABLE_CMSDK), true)
 include vendor/cm/config/cmsdk_common.mk
 endif
 
+<<<<<<< HEAD
+=======
+# Bootanimation
+PRODUCT_PACKAGES += \
+    bootanimation.zip
+
+>>>>>>> c85375217fbfb5d3c2c2b12e8c13307cd45657fc
 # Required CM packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
@@ -162,8 +163,6 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     LiveLockScreenService \
     LockClock \
-    Screencast \
-    SoundRecorder \
     Trebuchet \
     WallpaperPicker \
     WeatherProvider
