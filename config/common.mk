@@ -124,13 +124,6 @@ ifneq ($(TARGET_DISABLE_CMSDK), true)
 include vendor/cm/config/cmsdk_common.mk
 endif
 
-<<<<<<< HEAD
-=======
-# Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
-
->>>>>>> c85375217fbfb5d3c2c2b12e8c13307cd45657fc
 # Required CM packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
