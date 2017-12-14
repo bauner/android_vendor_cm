@@ -6,7 +6,8 @@ ifeq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
         vendor/cm/prebuilt/common/bootanimation/800.zip:system/media/bootanimation.zip
 endif
 
-PRODUCT_PACKAGES += TvSettings
+PRODUCT_PACKAGES += AppDrawer
+
 
 DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/tv
 
